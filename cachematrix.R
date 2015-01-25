@@ -27,6 +27,8 @@ makeCacheMatrix <- function(x = matrix()) {
         setsol <- function(sol) s <<- sol
         getsol <- function() s
         
+        ## Return a list of functions above making them available
+        ## outside.
         list(set = set, get = get,
              setsol = setsol, getsol = getsol)
 }
@@ -40,15 +42,20 @@ makeCacheMatrix <- function(x = matrix()) {
 ## my.x as a parameter.
 
 cacheSolve <- function(x, ...) {
-        
+        ## At first, trying to get ready solution
         s <- x$getsol()
+        
         if(!is.null(s)){
+                ## If found, return it and exit.
                 message("getting cached data")
                 return(s)
         }
         
+        ## If not, get a stored matrix,
         data <- x$get()
+        ## calculate an inverse and store in a cache.
         s <- solve(data)
         x$setsol(s)
+        ## Return the solution.
         s
 }
