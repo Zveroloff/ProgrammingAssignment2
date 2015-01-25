@@ -2,7 +2,7 @@
 ## functions do
 
 ## This function takes a matrix object as argument and defines
-## an object that implements caching fuctionality.
+## an object that implements caching functionality.
 ## Arguments: x, a matrix object
 ## Usage: call with a matrix as argument, assign a result to a
 ## variable to use later.
@@ -17,7 +17,7 @@ makeCacheMatrix <- function(x = matrix()) {
         ##      b) get a value of a stored matrix;
         ##      c) stores a solution in the s variable;
         ##      d) gets a solution from s variable.
-        ## The s variable "lives" in an environment that is parent
+        ## The s variable "lives" in the enclosing environment
         ## for these functions, so any of them can access it.
         set <- function(y) {
                 x <<- y
@@ -32,7 +32,7 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## This function inverse the matrix using the caching
+## This function inverse a matrix using the caching
 ## fuctionality.
 ## Arguments: x - the makeCacheMatrix object.
 ## Usage: initialize an object with makeCacheMatrix function,
